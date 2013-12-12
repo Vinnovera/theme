@@ -1,0 +1,27 @@
+---
+layout: default
+single: true
+---
+
+<section class="wrapper post">
+	<article>
+		<header>
+			<h1>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
+			
+			{% capture category %}{% if post %}{{ post.categories | category_links | size }}{% else %}{{ page.categories | category_links | size }}{% endif %}{% endcapture %}
+			{% unless category == '0' %}
+			<p class="meta">
+			  {% if post %}
+			    {{ post.categories | category_links }}
+			  {% else %}
+			    {{ page.categories | category_links }}
+			  {% endif %}
+			</p>
+			{% endunless %}
+		</header>
+	
+		<div>
+			{{ content }}
+		</div>
+	</article>
+</section>
