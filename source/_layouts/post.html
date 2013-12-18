@@ -40,3 +40,18 @@ single: true
 	</div>
 </section>
 {% endif %}
+
+<nav class="post-navigation">
+	{% if page.next.url %}
+		<a class="basic-alignment next" href="{{page.next.url}}" title="Nästa inlägg: {{page.next.title}}">Nästa inlägg</a>
+	{% else %}
+	<span class="next">Nästa inlägg</span>
+	{% endif %}
+	<span class="current">{{ site.posts | size }}</span>
+	<span class="total">{{ site.posts | size }}</span>
+	{% if page.previous.url %}
+		<a class="basic-alignment prev" href="{{page.previous.url}}" title="Föregående inlägg: {{page.previous.title}}">Föregående inlägg</a>
+	{% else %}
+	<span class="prev">Föregående inlägg</span>
+	{% endif %}
+</nav>
